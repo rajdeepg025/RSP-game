@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rock Paper Scissor Game</title>
+    </head>
+    <body>
+        <div>
+            <button class="rock-but" onclick="
+                compMove1()
+                ">Rock</button>
+            <button class="paper-but">Paper</button>
+            <button class="scissor-but">Scissor</button>
+
+            <script>
+                
+                let compMove = "";
+
+                function compMove1 () {
+                    let randomNumber = Math.random ();
+
+                    if (randomNumber >=0 && randomNumber<1/3) {
+                        compMove = "rock";
+                    } else if (randomNumber>=1/3 && randomNumber<2/3) {
+                        compMove = "paper";
+                    } else if (randomNumber>=2/3 && randomNumber<=1) {
+                        compMove = "scissor";
+                    }
+                    console.log(compMove);
+                }
+            </script>
+        </div>
+    </body>
+</html>
