@@ -5,6 +5,8 @@
     </head>
     <body>
         <div>
+            <p id="demo"></p>
+            <p id="demo2"></p>
             <button class="rock-but" onclick="
                 compMove1();result1();
                 ">Rock</button>
@@ -25,9 +27,10 @@
                     } else if (randomNumber>=2/3 && randomNumber<=1) {
                         compMove = "scissor";
                     }
-                
-                    console.log(compMove);
+                    document.getElementById("demo").innerHTML = compMove;
+
                 }
+                
                     let result = "";
 
                     function result1() {
@@ -39,7 +42,7 @@
                         } else if (compMove === 'scissor') {
                             result = 'You win';
                         }
-                        console.log(result);
+                        document.getElementById("demo2").innerHTML = result;
                     }
                 
             </script>
