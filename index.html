@@ -2,114 +2,30 @@
 <html>
     <head>
         <title>Rock Paper Scissor Game</title>
+        <link rel="stylesheet" href="index.css">
     </head>
     <body>
-        <div>
+        <div class="main">
+            <p>Rock Paper Scissor Game</p>
             <p id="demo"></p>
             <p id="demo2"></p>
             <p id="demo3"></p>
             <p id="demo4"></p>
             <button class="rock-but" onclick="
                 plyfunction('rock');
-                ">Rock</button>
+                "><img src="rsp game-img/👊 Oncoming Fist Emoji.jpeg" alt="hand"></button>
             <button class="paper-but" onclick="
                 plyfunction('paper');
-            ">Paper</button>
+            "><img src="rsp game-img/✋ Raised Hand Emoji.jpeg" alt="hand"></button>
             <button class="scissor-but" onclick="
                 plyfunction('scissor');
-            ">Scissor</button>
+            "><img src="rsp game-img/✌️ Victory Hand Emoji.jpeg" alt="hand"></button>
 
             <button class="reset" onclick="
             reset1();
             ">Reset score</button>
 
-            <script>
-
-                function plyfunction(plyMove) {
-                    compMove1();
-                    score1();
-                    result1(plyMove);
-                }
-                let score= {
-                 win : 0,
-                 lose : 0,
-                 tie : 0
-                }
-                function reset1() {
-                    
-                        score.win =0;
-                        score.lose =0;
-                        score.tie =0;
-
-                        document.getElementById("demo3").innerHTML =(`win: ${score.win}, lose:${score.lose}, Tie:${score.tie}`);
-                    }
-                
-                function score1() {
-                    if (result ==='You win') {
-                        score.win+=1;
-                    } else if (result ==='You lose') {
-                       score.lose+=1;
-                    } else if (result ==='Tie') {
-                        score.tie+=1;
-                    }
-                    document.getElementById('demo3').innerHTML =(`win: ${score.win}, lose:${score.lose}, Tie:${score.tie}`);
-                }
-                let compMove = "";
-
-                function compMove1 () {
-                    let randomNumber = Math.random ();
-
-                    if (randomNumber >=0 && randomNumber<1/3) {
-                        compMove = "rock";
-                    } else if (randomNumber>=1/3 && randomNumber<2/3) {
-                        compMove = "paper";
-                    } else if (randomNumber>=2/3 && randomNumber<=1) {
-                        compMove = "scissor";
-                    }
-                    document.getElementById("demo").innerHTML =(`Computer picked ${compMove}`);
-                    
-
-                }
-                
-                    let result = "";
-
-                    function result1(plyMove) {
-                    if (plyMove === "rock") {
-                      if (compMove === "rock") {
-                            result = 'Tie';
-                        } else if (compMove === 'paper') {
-                            result = 'You lose';
-                        } else if (compMove === 'scissor') {
-                            result = 'You win';
-                        }
-                    }
-                
-
-                      else if (plyMove === "paper") {
-                      if (compMove === "rock") {
-                            result = 'You win';
-                        } else if (compMove === 'paper') {
-                            result = 'Tie';
-                        } else if (compMove === 'scissor') {
-                            result = 'You lose';
-                        }
-                    }
-
-                      else if (plyMove === "scissor") {
-                      if (compMove === "rock") {
-                            result = 'You lose';
-                        } else if (compMove === 'paper') {
-                            result = 'You win';
-                        } else if (compMove === 'scissor') {
-                            result = 'Tie';
-                        }
-                      }
-                        document.getElementById("demo4").innerHTML =(`You picked ${plyMove}`);
-
-                        document.getElementById("demo2").innerHTML = result;
-                    }
-                
-            </script>
+            <script src="index.js"></script>
         </div>
     </body>
 </html>
