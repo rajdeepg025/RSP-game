@@ -8,12 +8,27 @@
             <p id="demo"></p>
             <p id="demo2"></p>
             <button class="rock-but" onclick="
-                compMove1();result1();
+                compMove1();result1();score1();
                 ">Rock</button>
             <button class="paper-but">Paper</button>
             <button class="scissor-but">Scissor</button>
 
             <script>
+                let score= {
+                 win : 0,
+                 lose : 0,
+                 tie : 0,
+                }
+                function score1() {
+                    if (result ==='You win') {
+                        score.win+=1;
+                    } else if (result ==='You lose') {
+                       score.lose+=1;
+                    } else if (result ==='Tie') {
+                        score.tie+=1;
+                    }
+                    console.log(`win is ${score.win},lose is ${score.lose}, tie is ${score.tie}`);
+                }
                 
                 let compMove = "";
 
