@@ -7,18 +7,43 @@
         <div>
             <p id="demo"></p>
             <p id="demo2"></p>
+            <p id="demo3"></p>
+            <p id="demo4"></p>
             <button class="rock-but" onclick="
-                compMove1();result1();score1();
+                plyfunction('rock');
                 ">Rock</button>
-            <button class="paper-but">Paper</button>
-            <button class="scissor-but">Scissor</button>
+            <button class="paper-but" onclick="
+                plyfunction('paper');
+            ">Paper</button>
+            <button class="scissor-but" onclick="
+                plyfunction('scissor');
+            ">Scissor</button>
+
+            <button class="reset" onclick="
+            reset1();
+            ">Reset score</button>
 
             <script>
+
+                function plyfunction(plyMove) {
+                    compMove1();
+                    score1();
+                    result1(plyMove);
+                }
                 let score= {
                  win : 0,
                  lose : 0,
-                 tie : 0,
+                 tie : 0
                 }
+                function reset1() {
+                    
+                        score.win =0;
+                        score.lose =0;
+                        score.tie =0;
+
+                        document.getElementById("demo3").innerHTML =(`win: ${score.win}, lose:${score.lose}, Tie:${score.tie}`);
+                    }
+                
                 function score1() {
                     if (result ==='You win') {
                         score.win+=1;
@@ -27,9 +52,8 @@
                     } else if (result ==='Tie') {
                         score.tie+=1;
                     }
-                    console.log(`win is ${score.win},lose is ${score.lose}, tie is ${score.tie}`);
+                    document.getElementById('demo3').innerHTML =(`win: ${score.win}, lose:${score.lose}, Tie:${score.tie}`);
                 }
-                
                 let compMove = "";
 
                 function compMove1 () {
@@ -42,21 +66,46 @@
                     } else if (randomNumber>=2/3 && randomNumber<=1) {
                         compMove = "scissor";
                     }
-                    document.getElementById("demo").innerHTML = compMove;
+                    document.getElementById("demo").innerHTML =(`Computer picked ${compMove}`);
+                    
 
                 }
                 
                     let result = "";
 
-                    function result1() {
-                        
-                        if (compMove === "rock") {
+                    function result1(plyMove) {
+                    if (plyMove === "rock") {
+                      if (compMove === "rock") {
                             result = 'Tie';
                         } else if (compMove === 'paper') {
                             result = 'You lose';
                         } else if (compMove === 'scissor') {
                             result = 'You win';
                         }
+                    }
+                
+
+                      else if (plyMove === "paper") {
+                      if (compMove === "rock") {
+                            result = 'You win';
+                        } else if (compMove === 'paper') {
+                            result = 'Tie';
+                        } else if (compMove === 'scissor') {
+                            result = 'You lose';
+                        }
+                    }
+
+                      else if (plyMove === "scissor") {
+                      if (compMove === "rock") {
+                            result = 'You lose';
+                        } else if (compMove === 'paper') {
+                            result = 'You win';
+                        } else if (compMove === 'scissor') {
+                            result = 'Tie';
+                        }
+                      }
+                        document.getElementById("demo4").innerHTML =(`You picked ${plyMove}`);
+
                         document.getElementById("demo2").innerHTML = result;
                     }
                 
